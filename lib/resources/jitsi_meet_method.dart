@@ -5,12 +5,13 @@ import 'package:jitsi_meet_flutter_sdk/jitsi_meet_flutter_sdk.dart';
 class JitsiMeetMethods {
 
 
-  void createNewMeeting({required String roomName, required bool isAudioMuted, required bool isVideoMuted, String username = ''}) async {
+  void createMeeting({required String roomName, required bool isAudioMuted, required bool isVideoMuted, String username = ''}) async {
     String name;
     if (username.isEmpty) {
+      name: '';
 
     } else {
-      name = username;
+      name= username;
     }
     try {
       var jitsiMeet = JitsiMeet();
@@ -22,7 +23,18 @@ class JitsiMeetMethods {
           "startWithVideoMuted": isVideoMuted,
           "subject": "Room Id: $roomName",
         },
-        featureFlags: {"unsaferoomwarning.enabled": false},
+        featureFlags: {
+          FeatureFlags.unsafeRoomWarningEnabled: true,
+          FeatureFlags.kickOutEnabled: true,
+          FeatureFlags.liveStreamingEnabled: true,
+          FeatureFlags.lobbyModeEnabled: true,
+          FeatureFlags.calenderEnabled: true,
+          FeatureFlags.resolution: FeatureFlagVideoResolutions.resolution720p,
+          FeatureFlags.meetingPasswordEnabled: false,
+          FeatureFlags.welcomePageEnabled: false,
+          FeatureFlags.recordingEnabled: true,
+          FeatureFlags.settingsEnabled: true,
+          FeatureFlags.tileViewEnabled: true,},
         userInfo: JitsiMeetUserInfo(
 
         ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kiraa/screens/meeting_history_screen.dart';
+// import 'package:kiraa/screens/meeting_history_screen.dart';
 import 'package:kiraa/screens/meeting_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -11,7 +11,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _page = 0;
+  int _page =0;
   onPageChanged(int page) {
     setState(() {
       _page = page;
@@ -19,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   List<Widget> pages = [
-    const MeetingScreen(),
+    MeetingScreen(),
     // const Text('Contacts'),
     //setting
 
@@ -30,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        title: const Text('Meet & Chat'),
+        title: const Text('Kiraa'),
         centerTitle: true,
         // backgroundColor: backgroundColor,
       ),
@@ -47,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.comment_bank),
-            label: 'Meet & Chat',
+            label: 'Kiraa',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.lock_clock),
